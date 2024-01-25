@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Button from "../ui/Button";
 
 export default function Navigation() {
 	return (
@@ -17,9 +18,9 @@ export default function Navigation() {
 				<li>
 					<Link href={"/projects"}>Projects</Link>
 				</li>
-				<li className="px-4 py-2 bg-gradient-to-tr hover:bg-gradient-to-tl shadow-md from-accentColor to-textColor rounded-lg">
+				<Button>
 					<Link href={"/contact"}>Contact Me</Link>
-				</li>
+				</Button>
 			</ul>
 		</div>
 	);
