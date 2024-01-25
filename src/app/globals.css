@@ -1,20 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 
 .container {
-  @apply px-5 py-8 md:p-14 lg:px-24 lg:py-16
+	@apply px-5 py-8 md:p-14 lg:px-24 lg:py-16;
 }
