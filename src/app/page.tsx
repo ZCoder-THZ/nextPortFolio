@@ -10,24 +10,28 @@ import { FaDiscord } from "react-icons/fa6";
 import { AiOutlineMail } from "react-icons/ai";
 import { AiOutlineDownload } from "react-icons/ai";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
+
+const icons = [
+	{ link: "/", icon: <FaLinkedinIn /> },
+	{ link: "/", icon: <FaFacebookF /> },
+	{ link: "/", icon: <FaDiscord /> },
+	{ link: "/", icon: <AiOutlineMail /> },
+];
 
 export default function Home() {
 	return (
 		<main className="flex flex-col items-center bg-gradient-to-tr from-bgColor to-bgColor/80">
 			<div className="relative container w-10/12 mx-auto mt-10 flex flex-col lg:flex-row items-center gap-10">
 				<div className="absolute left-0 text-white flex flex-col items-center gap-4 my-4">
-					<div className="p-2 border rounded-md hover:bg-textColor/50 duration-300">
-						<FaLinkedinIn />
-					</div>
-					<div className="p-2 border rounded-md hover:bg-textColor/50 duration-300">
-						<FaFacebookF />
-					</div>
-					<div className="p-2 border rounded-md hover:bg-textColor/50 duration-300">
-						<FaDiscord />
-					</div>
-					<div className="p-2 border rounded-md hover:bg-textColor/50 duration-300">
-						<AiOutlineMail />
-					</div>
+					{icons.map((icon, index) => (
+						<div
+							key={index}
+							className="p-2 border rounded-md hover:bg-textColor/50 duration-300"
+						>
+							<Link href={icon.link}>{icon.icon}</Link>
+						</div>
+					))}
 				</div>
 				<div className="w-full lg:w-8/12 text-white">
 					<h1 className="text-2xl text-textColor">Hello..., It's me </h1>
