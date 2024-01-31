@@ -14,7 +14,7 @@ const icons = [
 
 export default function About() {
 	return (
-		<div className="container mt-14 md:mt-20 w-full lg:w-9/12 mx-auto text-white flex flex-col md:flex-row gap-8 md:gap-20">
+		<div className="container mt-14 md:mt-20 w-full lg:w-9/12 mx-auto flex flex-col md:flex-row gap-8 md:gap-20">
 			<h2 className="uppercase font-bold text-2xl md:text-3xl shrink-0">
 				about me
 			</h2>

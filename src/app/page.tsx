@@ -30,7 +30,7 @@ export default function Home() {
 						height={400}
 						className="w-[250px] md:w-[380px] h-auto object-contain mt-10"
 					/>
-					<div className="flex items-center gap-3 md:gap-6 text-white mt-4">
+					<div className="flex items-center gap-3 md:gap-6 mt-4">
 						<Button>
 							<div className="flex items-center gap-1 text-xs md:text-base">
 								<Link href={"/"}>Get Resume</Link>
