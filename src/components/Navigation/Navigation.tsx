@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Button from "../ui/Button";
 import { FiMenu } from "react-icons/fi";
@@ -15,15 +16,16 @@ export default function Navigation() {
 	const [navMenuOpen, setNavMenuOpen] = useState(false);
 
 	return (
-		<div
-			className={`absolute top-0 w-full flex items-start lg:items-center justify-between px-5 md:px-14 lg:px-24 py-4 ${
-				navMenuOpen
-					? "bg-bgColor/80 lg:bg-transparent backdrop-blur-md h-screen lg:h-auto z-10 lg:z-0"
-					: ""
+		<motion.div
+			initial={{ opacity: 0, y: -20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ delay: 1, duration: 0.5 }}
+			className={`fixed top-0 w-full flex items-start lg:items-center justify-between px-5 md:px-14 lg:px-24 py-3 md:py-4 z-10 bg-transparent backdrop-blur-md${
+				navMenuOpen ? "bg-bgColor backdrop-blur-md h-screen lg:h-auto" : ""
 			}`}
 		>
-			<Link href={"/"} className="font-serif text-white text-xl">
-				mayzinei
+			<Link href={"/"} className="signature text-white text-2xl md:text-3xl">
+				Mayzinei
 			</Link>
 
 			<ul
@@ -47,11 +49,11 @@ export default function Navigation() {
 			</ul>
 
 			<button
-				className="w-[80px] flex justify-end text-xl text-white lg:hidden cursor-pointer"
+				className="w-[70px] h-auto flex justify-end mt-2 text-xl text-white lg:hidden cursor-pointer"
 				onClick={() => setNavMenuOpen(!navMenuOpen)}
 			>
 				{navMenuOpen ? <GrClose /> : <FiMenu />}
 			</button>
-		</div>
+		</motion.div>
 	);
 }
