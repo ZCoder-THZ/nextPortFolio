@@ -24,7 +24,10 @@ export default function Navigation() {
 				navMenuOpen ? "bg-bgColor backdrop-blur-md h-screen lg:h-auto" : ""
 			}`}
 		>
-			<Link href={"/"} className="signature text-white text-2xl md:text-3xl">
+			<Link
+				href={"/"}
+				className="font-sacra text-white text-2xl md:text-3xl"
+			>
 				Mayzinei
 			</Link>
 

@@ -13,6 +13,10 @@ const config: Config = {
 				textColor: "#99bee4",
 				bgColor: "#10253b",
 			},
+			fontFamily: {
+				poppin: ["Poppin", "san-serif"],
+				sacra: ["Sacramento", "cursive"],
+			},
 		},
 	},
 	plugins: [],

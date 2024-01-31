@@ -11,13 +11,9 @@
 }
 
 body {
-	font-family: "Poppins", sans-serif;
+	@apply font-poppin bg-gradient-to-tr from-bgColor to-bgColor/90;
 }
 
 .container {
 	@apply px-5 py-8 md:p-14 lg:px-24 lg:py-16;
-}
-
-.signature {
-	font-family: "Sacramento", cursive;
 }

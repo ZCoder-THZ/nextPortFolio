@@ -6,27 +6,16 @@ import About from "./about/page";
 import Contact from "./contact/page";
 import Projects from "./projects/page";
 import Skills from "./skills/page";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { FaFacebookF } from "react-icons/fa";
-import { FaDiscord } from "react-icons/fa6";
-import { AiOutlineMail } from "react-icons/ai";
 import { AiOutlineDownload } from "react-icons/ai";
 import { MdArrowOutward } from "react-icons/md";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import SvgText from "@/components/ui/SvgText";
 
-const icons = [
-	{ link: "/", icon: <FaLinkedinIn /> },
-	{ link: "/", icon: <FaFacebookF /> },
-	{ link: "/", icon: <FaDiscord /> },
-	{ link: "/", icon: <AiOutlineMail /> },
-];
-
 export default function Home() {
 	return (
-		<main className="bg-gradient-to-tr from-bgColor to-bgColor/90">
-			<div className="relative w-full h-screen flex flex-col items-center">
+		<main className="">
+			<div className="relative w-full h-[75vh] lg:h-[90vh] flex flex-col items-center">
 				<SvgText />
 				<motion.div
 					initial={{ opacity: 0 }}
