@@ -1,19 +1,30 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import SkillChart from "@/components/ui/SkillChart";
 
 const logoIcons = [
-	{ src: "/Logos/html.png", alt: "html" },
-	{ src: "/Logos/css.svg", alt: "css" },
-	{ src: "/Logos/js.png", alt: "javascript" },
-	{ src: "/Logos/bootstrap.png", alt: "bootstrap" },
-	{ src: "/Logos/tailwind.svg", alt: "tailwind" },
-	{ src: "/Logos/react.svg", alt: "react js" },
-	{ src: "/Logos/next.svg", alt: "next js" },
-	{ src: "/Logos/framer.svg", alt: "framer motion" },
-	{ src: "/Logos/figma.svg", alt: "figma" },
+	{ src: "/Logos/html.png", alt: "html", percentage: 90 },
+	{ src: "/Logos/css.svg", alt: "css", percentage: 80 },
+	{ src: "/Logos/js.png", alt: "javascript", percentage: 60 },
+	{ src: "/Logos/bootstrap.png", alt: "bootstrap", percentage: 40 },
+	{ src: "/Logos/tailwind.svg", alt: "tailwind", percentage: 70 },
+	{ src: "/Logos/react.svg", alt: "react js", percentage: 60 },
+	{ src: "/Logos/next.svg", alt: "next js", percentage: 50 },
+	{ src: "/Logos/framer.svg", alt: "framer motion", percentage: 40 },
+	{ src: "/Logos/figma.svg", alt: "figma", percentage: 80 },
 ];
 
 export default function Skills() {
+	const [isFlipped, setIsFlipped] = useState(false);
+	const [isAnimated, setIsAnimated] = useState(false);
+	const handleFlip = () => {
+		if (!isAnimated) {
+			setIsFlipped(!isFlipped);
+			setIsAnimated(true);
+		}
+	};
 	return (
 		<div className="w-full h-screen flex items-center justify-center">
 			<div className="container flex flex-col items-center gap-14">
@@ -34,14 +45,33 @@ export default function Skills() {
 					{logoIcons.map((logo, index) => (
 						<div
 							key={index}
-							className="grid place-items-center p-4 rounded-xl bg-bgColor shadow-lg shadow-textColor/80"
+							onClick={handleFlip}
+							className="flip-icon w-20 h-20 cursor-pointer"
 						>
-							<Image
-								src={logo.src}
-								alt={logo.alt}
-								width={50}
-								height={50}
-							/>
+							<AnimatePresence>
+								<motion.div
+									initial={false}
+									whileHover={{ rotateY: isFlipped ? 180 : 360 }}
+									transition={{
+										duration: 0.5,
+										animationDirection: "normal",
+									}}
+									onAnimationComplete={() => setIsAnimated(false)}
+									className="flip-icon-inner w-full h-full"
+								>
+									<div className="flip-icon-front w-full h-full grid place-items-center p-4 rounded-xl bg-bgColor shadow-lg shadow-textColor/80">
+										<Image
+											src={logo.src}
+											alt={logo.alt}
+											width={50}
+											height={50}
+										/>
+									</div>
+									<div className="flip-icon-back text-white w-full h-full grid place-items-center p-4 rounded-xl bg-bgColor shadow-lg shadow-textColor/80">
+										<SkillChart percentage={logo.percentage} />
+									</div>
+								</motion.div>
+							</AnimatePresence>
 						</div>
 					))}
 				</div>

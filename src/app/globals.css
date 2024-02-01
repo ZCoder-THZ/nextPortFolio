@@ -19,3 +19,20 @@ body {
 .container {
 	@apply px-5 py-8 md:p-14 lg:px-24 lg:py-16;
 }
+
+/* --------Flip Icons------- */
+.flip-icon {
+	perspective: 1000px;
+}
+.flip-icon-inner {
+	transition: transform 0.5s;
+	transform-style: preserve-3d;
+}
+.flip-icon-front,
+.flip-icon-back {
+	position: absolute;
+	backface-visibility: hidden;
+}
+.flip-icon-back {
+	transform: rotateY(180deg);
+}
