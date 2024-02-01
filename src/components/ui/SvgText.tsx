@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const strokeColor = "#99bee4";
+const strokeColor = "#6F93B8";
 const svgVariants = {
 	initial: {
 		strokeDasharray: 100,

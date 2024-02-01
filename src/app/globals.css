@@ -13,7 +13,7 @@
 }
 
 body {
-	@apply font-poppin text-white bg-gradient-to-tr from-bgColor to-bgColor/90;
+	@apply font-poppin text-white bg-gradient-to-tr from-bgColor to-bgColor/80;
 }
 
 .container {

@@ -23,7 +23,7 @@ export default function Home() {
 					alt="text1"
 					width={400}
 					height={400}
-					className="w-[250px] md:w-[380px] h-auto object-contain mt-5"
+					className="w-[250px] md:w-[320px] lg:w-[380px] h-auto object-contain mt-10 md:mt-5"
 				/>
 				<div className="flex items-center gap-3 md:gap-6 mt-4">
 					<Button>
