@@ -17,7 +17,7 @@ export default function Navigation() {
 
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: -10 }}
+			initial={{ opacity: 0, y: 5 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 1, duration: 0.5 }}
 			className={`fixed top-0 w-full flex items-start lg:items-center justify-between px-5 md:px-14 lg:px-24 py-3 md:py-4 z-10 bg-transparent backdrop-blur-md${

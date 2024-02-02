@@ -28,7 +28,7 @@ export default function Skills() {
 	return (
 		<div className="w-full h-screen flex items-center justify-center">
 			<div className="container flex flex-col items-center gap-14">
-				<div className="space-y-6">
+				<div className="space-y-4 md:space-y-6">
 					<h1 className="text-4xl md:text-5xl font-bold uppercase">
 						skills{" "}
 						<span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor to-white">
@@ -36,7 +36,7 @@ export default function Skills() {
 						</span>{" "}
 						technologies
 					</h1>
-					<p className="w-full md:w-8/12 mx-auto text-center text-textColor">
+					<p className="w-full md:w-8/12 mx-auto font-gowun text-center text-textColor">
 						A Closer Look at My Skill Set and Mastery in Leading-edge
 						Technologies.
 					</p>
@@ -51,7 +51,7 @@ export default function Skills() {
 							<AnimatePresence>
 								<motion.div
 									initial={false}
-									whileHover={{ rotateY: isFlipped ? 180 : 360 }}
+									whileHover={{ rotateY: isFlipped ? 0 : 180 }}
 									transition={{
 										duration: 0.5,
 										animationDirection: "normal",

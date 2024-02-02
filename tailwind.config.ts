@@ -16,7 +16,7 @@ const config: Config = {
 			fontFamily: {
 				poppin: ["Poppin", "san-serif"],
 				sacra: ["Sacramento", "cursive"],
-				unna: ["Unna", "serif"],
+				gowun: ["Gowun Batang", "serif"],
 			},
 		},
 	},
