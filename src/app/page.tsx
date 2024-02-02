@@ -34,7 +34,7 @@ export default function Home() {
 					</Button>
 					<Button>
 						<div className="flex items-center gap-1 text-xs md:text-base">
-							<Link href={"/"}>See Projects</Link>
+							<Link href={"/projects"}>See Projects</Link>
 							<MdArrowOutward />
 						</div>
 					</Button>
