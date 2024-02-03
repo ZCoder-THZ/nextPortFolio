@@ -12,6 +12,17 @@
 	box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+	width: 5px;
+	height: 20px;
+}
+::-webkit-scrollbar-track {
+	@apply bg-bgColor;
+}
+::-webkit-scrollbar-thumb {
+	@apply bg-gradient-to-br from-accentColor to-white rounded-full;
+}
+
 body {
 	@apply font-poppin text-white bg-gradient-to-tr from-bgColor to-bgColor/80;
 }

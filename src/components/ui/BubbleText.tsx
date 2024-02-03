@@ -48,19 +48,19 @@ export default function BubbleText() {
 	return (
 		<h2 className="hover-text font-gowun text-justify text-xl md:text-2xl tracking-tighter leading-7 md:leading-9 font-thin text-textColor">
 			<Text>
-				Hello, I'm May Zin Ei and I'm a Frontend Developer with a passion
-				for creating interactive and responsive web applications. I have
+				Hello, I am May Zin Ei, a Frontend Developer with a passion for
+				creating interactive and responsive web applications. I have
 				experience working with Html, Css, Bootstrap, Tailwind Css,
 				Javascript, React, Nextjs, Ghost CMS and Git.
 			</Text>
 			<br />
 			<Text>
-				Currently, I'm focused on building responsive frontend web
+				Currently, I am focused on building responsive frontend web
 				applications while learning backend technologies.
 			</Text>
 			<br />
 			<Text>
-				My collaborative spirit shines within teams and I'm excited to work
+				My collaborative spirit shines within teams and I am excited to work
 				with others to create amazing web applications.
 			</Text>
 		</h2>
