@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { CiLocationArrow1 } from "react-icons/ci";
 
 const projects = [
@@ -49,14 +49,15 @@ const projects = [
 ];
 
 export default function Projects() {
-	const { scrollYProgress } = useScroll();
 	return (
-		<div className="container mt-5 md:mt-0 w-full h-screen flex flex-col items-center justify-center gap-6">
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 1 }}
+			className="container mt-5 md:mt-0 w-full h-screen flex flex-col items-center justify-center gap-6"
+		>
 			<h1 className="text-4xl md:text-5xl font-bold">My Projects</h1>
-			<motion.div
-				style={{ scaleX: scrollYProgress }}
-				className="w-full lg:w-10/12 mx-auto h-[70vh] overflow-y-auto"
-			>
+			<div className="w-full lg:w-10/12 mx-auto h-[70vh] overflow-y-auto">
 				{projects.map((project, index) => (
 					<div
 						key={index}
@@ -98,7 +99,7 @@ export default function Projects() {
 						</div>
 					</div>
 				))}
-			</motion.div>
-		</div>
+			</div>
+		</motion.div>
 	);
 }

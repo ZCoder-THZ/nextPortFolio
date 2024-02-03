@@ -29,17 +29,27 @@ export default function Skills() {
 		<div className="w-full h-screen flex items-center justify-center">
 			<div className="container flex flex-col items-center gap-14">
 				<div className="space-y-4 md:space-y-6">
-					<h1 className="text-4xl md:text-5xl font-bold uppercase">
+					<motion.h1
+						initial={{ opacity: 0, y: 10 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 1 }}
+						className="text-4xl md:text-5xl font-bold uppercase"
+					>
 						skills{" "}
 						<span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor to-white">
 							&
 						</span>{" "}
 						technologies
-					</h1>
-					<p className="w-full md:w-8/12 mx-auto font-gowun text-center text-textColor">
+					</motion.h1>
+					<motion.p
+						initial={{ opacity: 0, y: -6 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 1 }}
+						className="w-full md:w-8/12 mx-auto font-gowun text-center text-textColor"
+					>
 						A Closer Look at My Skill Set and Mastery in Leading-edge
 						Technologies.
-					</p>
+					</motion.p>
 				</div>
 				<div className="w-full md:w-8/12 lg:w-6/12 mx-auto flex flex-wrap justify-center gap-6 lg:gap-10">
 					{logoIcons.map((logo, index) => (
@@ -50,9 +60,11 @@ export default function Skills() {
 						>
 							<AnimatePresence>
 								<motion.div
-									initial={false}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
 									whileHover={{ rotateY: isFlipped ? 0 : 180 }}
 									transition={{
+										delay: 0.5,
 										duration: 0.5,
 										animationDirection: "normal",
 									}}
