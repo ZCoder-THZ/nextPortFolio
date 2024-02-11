@@ -56,8 +56,10 @@ export default function Projects() {
 			transition={{ duration: 1 }}
 			className="container mt-5 md:mt-0 w-full h-screen flex flex-col items-center justify-center gap-6"
 		>
-			<h1 className="text-4xl md:text-5xl font-bold">My Projects</h1>
-			<div className="w-full lg:w-10/12 mx-auto h-[70vh] overflow-y-auto">
+			<h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-textColor to-white dark:from-bgColor dark:to-accentColor p-2">
+				My Projects
+			</h1>
+			<div className="w-full lg:w-10/12 mx-auto h-[70vh] overflow-y-auto dark:text-bgColor">
 				{projects.map((project, index) => (
 					<div
 						key={index}

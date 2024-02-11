@@ -17,7 +17,7 @@ export default function ContactIcons() {
 			{icons.map((icon, index) => (
 				<div
 					key={index}
-					className="p-2 text-textColor hover:text-white border border-textColor hover:border-white rounded-md hover:bg-textColor/20 hover:shadow-2xl duration-300"
+					className="p-2 text-textColor dark:text-bgColor hover:text-white dark:hover:text-accentColor border border-textColor dark:border-bgColor hover:border-white dark:hover:border-accentColor rounded-md hover:bg-textColor/20 hover:shadow-2xl duration-300"
 				>
 					<Link href={icon.link}>{icon.icon}</Link>
 				</div>

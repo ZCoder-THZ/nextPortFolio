@@ -33,10 +33,10 @@ export default function Skills() {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 1 }}
-						className="text-4xl md:text-5xl font-bold uppercase"
+						className="text-4xl md:text-5xl font-bold uppercase dark:text-bgColor"
 					>
 						skills{" "}
-						<span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor to-white">
+						<span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor dark:from-accentColor to-white dark:to-textColor">
 							&
 						</span>{" "}
 						technologies
@@ -45,7 +45,7 @@ export default function Skills() {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 1 }}
-						className="w-full md:w-8/12 mx-auto font-gowun text-center text-textColor"
+						className="w-full md:w-8/12 mx-auto font-gowun text-center text-textColor dark:text-accentColor"
 					>
 						A Closer Look at My Skill Set and Mastery in Leading-edge
 						Technologies.
@@ -70,7 +70,7 @@ export default function Skills() {
 									onAnimationComplete={() => setIsAnimated(false)}
 									className="flip-icon-inner w-full h-full"
 								>
-									<div className="flip-icon-front w-full h-full grid place-items-center p-4 rounded-xl bg-bgColor shadow-lg shadow-textColor/80">
+									<div className="flip-icon-front w-full h-full grid place-items-center p-4 rounded-xl bg-bgColor shadow-lg shadow-textColor/80 dark:shadow-accentColor/80">
 										<Image
 											src={logo.src}
 											alt={logo.alt}

@@ -26,13 +26,13 @@ export default function Navigation() {
 		>
 			<Link
 				href={"/"}
-				className="font-sacra text-white text-2xl md:text-3xl"
+				className="font-sacra text-white dark:text-accentColor text-2xl md:text-3xl"
 			>
 				Mayzinei
 			</Link>
 
 			<ul
-				className={`lg:flex items-center gap-12 text-white ${
+				className={`lg:flex items-center gap-12 text-white dark:text-accentColor ${
 					navMenuOpen
 						? "flex flex-col lg:flex-row mt-20 lg:mt-0"
 						: "hidden"
