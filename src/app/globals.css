@@ -24,7 +24,7 @@
 }
 
 body {
-	@apply font-poppin text-white bg-gradient-to-tr from-bgColor to-bgColor/80;
+	@apply font-poppin text-white bg-gradient-to-tr from-bgColor to-bgColor/80 dark:bg-gradient-to-tr dark:from-white/90 dark:to-white;
 }
 
 .container {

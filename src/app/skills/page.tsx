@@ -30,8 +30,8 @@ export default function Skills() {
 			<div className="container flex flex-col items-center gap-14">
 				<div className="space-y-4 md:space-y-6">
 					<motion.h1
-						initial={{ opacity: 0, y: 10 }}
-						animate={{ opacity: 1, y: 0 }}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
 						transition={{ duration: 1 }}
 						className="text-4xl md:text-5xl font-bold uppercase"
 					>
@@ -42,8 +42,8 @@ export default function Skills() {
 						technologies
 					</motion.h1>
 					<motion.p
-						initial={{ opacity: 0, y: -6 }}
-						animate={{ opacity: 1, y: 0 }}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
 						transition={{ duration: 1 }}
 						className="w-full md:w-8/12 mx-auto font-gowun text-center text-textColor"
 					>
@@ -64,8 +64,7 @@ export default function Skills() {
 									animate={{ opacity: 1 }}
 									whileHover={{ rotateY: isFlipped ? 0 : 180 }}
 									transition={{
-										delay: 0.5,
-										duration: 0.5,
+										duration: 0.3,
 										animationDirection: "normal",
 									}}
 									onAnimationComplete={() => setIsAnimated(false)}

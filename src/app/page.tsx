@@ -15,7 +15,7 @@ export default function Home() {
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
-				transition={{ duration: 2 }}
+				transition={{ delay: 1, duration: 2 }}
 				className="container w-full lg:w-6/12 mx-auto grid place-items-center absolute top-0"
 			>
 				<Image
