@@ -28,7 +28,7 @@ export default function Home() {
 				<div className="flex items-center gap-3 md:gap-6 mt-4">
 					<Button>
 						<div className="flex items-center gap-1 text-xs md:text-base">
-							<Link href={"/"}>Get Resume</Link>
+							<Link href={"/cv.pdf"}>Get Resume</Link>
 							<AiOutlineDownload className="text-lg" />
 						</div>
 					</Button>
