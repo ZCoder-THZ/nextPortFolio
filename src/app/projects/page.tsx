@@ -54,16 +54,16 @@ export default function Projects() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1 }}
-			className="container mt-5 md:mt-0 w-full h-screen flex flex-col items-center justify-center gap-6"
+			className="container w-full h-screen flex flex-col items-center justify-center gap-4"
 		>
-			<h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-textColor to-white dark:from-bgColor dark:to-accentColor p-2">
+			<h1 className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-textColor to-white dark:from-bgColor dark:to-accentColor pt-8 pb-2">
 				My Projects
 			</h1>
 			<div className="w-full lg:w-10/12 mx-auto h-[70vh] overflow-y-auto dark:text-bgColor">
 				{projects.map((project, index) => (
 					<div
 						key={index}
-						className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b-[0.5px] border-textColor px-5 pb-10 pt-5 md:p-10"
+						className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b-[0.5px] border-textColor px-2 md:px-5 pb-10 pt-5 md:p-10"
 					>
 						<div className="flex flex-col justify-between gap-2">
 							<div>

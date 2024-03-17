@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const inputStyle =
-	"text-sm lg:text-base p-2 lg:px-4 lg:py-2 col-span-2 rounded-md bg-bgColor/80 backdrop-blur-md shadow-md shadow-textColor/40 dark:shadow-accentColor/80";
+	"text-sm lg:text-base p-2 lg:px-4 lg:py-2 col-span-2 rounded-md bg-bgColor/90 dark:bg-white dark:text-bgColor backdrop-blur-md shadow-md shadow-textColor/40 dark:shadow-textColor";
 
 export default function Contact() {
 	const nameRef = useRef();
@@ -55,9 +55,9 @@ export default function Contact() {
 			className="w-full h-screen flex items-center justify-center"
 		>
 			<ToastContainer />
-			<div className="container mt-10 lg:mt-20 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-20">
+			<div className="container mt-0 lg:mt-18 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-20">
 				<div className="space-y-3 lg:space-y-8">
-					<h2 className="text-3xl lg:text-5xl font-extrabold leading-9 tracking-wide text-transparent bg-clip-text bg-gradient-to-br from-textColor dark:from-accentColor dark:to-bgColor to-accentColor duration-300">
+					<h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-7 md:leading-9 tracking-wide text-transparent bg-clip-text bg-gradient-to-br from-textColor dark:from-accentColor dark:to-bgColor to-accentColor duration-300">
 						I&apos;m avaliable for freelance <br /> or fulltime positions.{" "}
 						<br />
 						Contact me and let&apos;s talk.
@@ -72,14 +72,14 @@ export default function Contact() {
 						placeholder="Name"
 						required
 						ref={nameRef}
-						className="col-span-1 text-sm lg:text-base p-2 lg:px-4 lg:py-2 rounded-md bg-bgColor/80 backdrop-blur-md shadow-md shadow-textColor/40 dark:shadow-accentColor/80"
+						className="col-span-1 text-sm lg:text-base p-2 lg:px-4 lg:py-2 rounded-md bg-bgColor/90 dark:bg-white dark:text-bgColor backdrop-blur-md shadow-md shadow-textColor/40 dark:shadow-textColor"
 					/>
 					<input
 						placeholder="Phone"
 						type="number"
 						required
 						ref={phoneRef}
-						className="col-span-1 text-sm lg:text-base p-2 lg:px-4 lg:py-2 rounded-md bg-bgColor/80 backdrop-blur-md shadow-md shadow-textColor/40 dark:shadow-accentColor/80"
+						className="col-span-1 text-sm lg:text-base p-2 lg:px-4 lg:py-2 rounded-md bg-bgColor/90 dark:bg-white dark:text-bgColor backdrop-blur-md shadow-md shadow-textColor/40 dark:shadow-textColor"
 					/>
 					<input
 						placeholder="Email"

@@ -23,7 +23,7 @@ export default function RootLayout({
 				<Providers>
 					<Navigation />
 					{children}
-					<div className="absolute bottom-10 right-10">
+					<div className="absolute bottom-5 right-5 md:bottom-8 md:right-10">
 						<ThemeSwitch />
 					</div>
 				</Providers>
