@@ -19,7 +19,7 @@ export default function Home() {
 				className="container w-full lg:w-6/12 mx-auto grid place-items-center absolute top-0"
 			>
 				<Image
-					src={"/my-image.png"}
+					src={"/myImage.png"}
 					alt="text1"
 					width={400}
 					height={400}

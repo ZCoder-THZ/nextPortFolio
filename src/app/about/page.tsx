@@ -54,12 +54,12 @@ export default function About() {
 			transition={{ duration: 1 }}
 			className="w-full h-screen flex items-center justify-center"
 		>
-			<div className="container lg:w-9/12 mx-auto flex flex-col lg:flex-row gap-6 lg:gap-20 mt-20 md:mt-0">
+			<div className="container max-w-screen-lg mx-auto flex flex-col lg:flex-row gap-4 lg:gap-20">
 				<h2 className="uppercase text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accentColor dark:from-bgColor to-textColor dark:to-accentColor shrink-0">
 					about me
 				</h2>
-				<div className="p-0 lg:px-8">
-					<p className="hover-text font-gowun text-justify text-xl md:text-2xl tracking-tighter leading-7 md:leading-9 font-thin text-textColor dark:text-bgColor">
+				<div>
+					<p className="hover-text font-gowun text-justify text-lg md:text-2xl tracking-tighter leading-6 md:leading-9 font-thin text-textColor dark:text-bgColor">
 						<Text>
 							Hello, I am May Zin Ei, a Frontend Developer with a passion
 							for creating interactive and responsive web applications. I
