@@ -20,19 +20,19 @@ export default function Navigation() {
 			initial={{ opacity: 0, y: 5 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 1, duration: 0.5 }}
-			className={`fixed top-0 w-full flex items-start lg:items-center justify-between px-5 md:px-14 lg:px-24 py-3 md:py-4 z-10 bg-transparent backdrop-blur-md${
+			className={`fixed top-0 w-full flex items-start lg:items-center justify-between px-5 md:px-14 lg:px-24 py-3 md:py-6 z-10 bg-transparent  backdrop-blur-md${
 				navMenuOpen ? "bg-bgColor backdrop-blur-md h-screen lg:h-auto" : ""
 			}`}
 		>
 			<Link
 				href={"/"}
-				className="font-sacra text-white dark:text-accentColor text-2xl md:text-3xl"
+				className="font-sacra text-white dark:text-bgColor text-2xl md:text-3xl"
 			>
 				Mayzinei
 			</Link>
 
 			<ul
-				className={`lg:flex items-center gap-12 text-white dark:text-accentColor ${
+				className={`lg:flex items-center gap-12 text-white dark:text-bgColor ${
 					navMenuOpen
 						? "flex flex-col lg:flex-row mt-20 lg:mt-0"
 						: "hidden"
@@ -41,7 +41,7 @@ export default function Navigation() {
 				{navLinks.map((navLink, index) => (
 					<li
 						key={index}
-						className="text-lg lg:text-base focus:text-accentColor hover:text-textColor"
+						className="text-lg lg:text-base hover:text-textColor dark:hover:text-accentColor"
 					>
 						<Link href={navLink.link}>{navLink.title}</Link>
 					</li>
@@ -52,7 +52,7 @@ export default function Navigation() {
 			</ul>
 
 			<button
-				className="w-[70px] h-auto flex justify-end mt-2 text-xl text-white lg:hidden cursor-pointer"
+				className="w-[70px] h-auto flex justify-end mt-2 text-xl text-white dark:text-bgColor lg:hidden cursor-pointer"
 				onClick={() => setNavMenuOpen(!navMenuOpen)}
 			>
 				{navMenuOpen ? <GrClose /> : <FiMenu />}
