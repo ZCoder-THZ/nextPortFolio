@@ -30,22 +30,22 @@ const projects = [
 		description: "Creating Javascript Calculator",
 		techStack: ["html", "css", "javascript"],
 	},
-	{
-		link: "https://ori0n.team/Js-Calculator/",
-		src: "/Projects/calculator.png",
-		alt: "JS Calculator",
-		title: "Calculator",
-		description: "Creating Javascript Calculator",
-		techStack: ["html", "css", "javascript"],
-	},
-	{
-		link: "https://ori0n.team/Js-Calculator/",
-		src: "/Projects/calculator.png",
-		alt: "JS Calculator",
-		title: "Calculator",
-		description: "Creating Javascript Calculator",
-		techStack: ["html", "css", "javascript"],
-	},
+	// {
+	// 	link: "https://ori0n.team/Js-Calculator/",
+	// 	src: "/Projects/calculator.png",
+	// 	alt: "JS Calculator",
+	// 	title: "Calculator",
+	// 	description: "Creating Javascript Calculator",
+	// 	techStack: ["html", "css", "javascript"],
+	// },
+	// {
+	// 	link: "https://ori0n.team/Js-Calculator/",
+	// 	src: "/Projects/calculator.png",
+	// 	alt: "JS Calculator",
+	// 	title: "Calculator",
+	// 	description: "Creating Javascript Calculator",
+	// 	techStack: ["html", "css", "javascript"],
+	// },
 ];
 
 export default function Projects() {

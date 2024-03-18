@@ -17,7 +17,7 @@ const svgVariants = {
 
 export default function SvgText() {
 	return (
-		<div className="w-full h-screen mx-auto space-y-8 md:space-y-6 lg:space-y-2 mt-40 flex flex-col items-center">
+		<div className="w-full h-screen mx-auto space-y-8 md:space-y-6 lg:space-y-3 mt-40 lg:mt-28 flex flex-col items-center">
 			<svg
 				width="1200"
 				height="130"

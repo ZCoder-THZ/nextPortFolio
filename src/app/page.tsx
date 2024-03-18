@@ -19,7 +19,7 @@ export default function Home() {
 				className="container w-full lg:w-6/12 mx-auto grid place-items-center absolute top-0"
 			>
 				<Image
-					src={"/myImage.png"}
+					src={"/myImage.svg"}
 					alt="text1"
 					width={400}
 					height={400}
@@ -28,7 +28,7 @@ export default function Home() {
 				<div className="flex items-center gap-3 md:gap-6 mt-4">
 					<Button>
 						<div className="flex items-center gap-1 text-xs md:text-base">
-							<Link href={"/cv.pdf"}>Get Resume</Link>
+							<Link href={"/my_cv.pdf"}>Get Resume</Link>
 							<AiOutlineDownload className="text-lg" />
 						</div>
 					</Button>
