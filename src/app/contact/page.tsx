@@ -11,23 +11,23 @@ const inputStyle =
 	"text-sm lg:text-base p-2 lg:px-4 lg:py-2 col-span-2 rounded-md bg-bgColor/90 dark:bg-white dark:text-bgColor backdrop-blur-md shadow-md shadow-textColor/40 dark:shadow-textColor";
 
 export default function Contact() {
-	const nameRef = useRef();
-	const phoneRef = useRef();
-	const emailRef = useRef();
-	const subjectRef = useRef();
-	const messageRef = useRef();
+	const nameRef = useRef<HTMLInputElement>(null);
+	const phoneRef = useRef<HTMLInputElement>(null);
+	const emailRef = useRef<HTMLInputElement>(null);
+	const subjectRef = useRef<HTMLInputElement>(null);
+	const messageRef = useRef<HTMLTextAreaElement>(null);
 
 	const submitHandler = async (e: any) => {
 		const notify = (msg: string) => toast(msg);
 		const userData = {
-			name: nameRef.current.value,
-			phone: phoneRef.current.value,
-			email: emailRef.current.value,
-			subject: subjectRef.current.value,
-			message: messageRef.current.value,
+			name: nameRef.current?.value,
+			phone: phoneRef.current?.value,
+			email: emailRef.current?.value,
+			subject: subjectRef.current?.value,
+			message: messageRef.current?.value,
 		};
 		e.preventDefault();
-		console.log(nameRef.current.value);
+		console.log(nameRef.current?.value);
 
 		try {
 			const data = await axios.post(
@@ -38,11 +38,11 @@ export default function Contact() {
 			notify(data.data.message);
 
 			console.log(data.data);
-			nameRef.current.value = "";
-			phoneRef.current.value = "";
-			emailRef.current.value = "";
-			subjectRef.current.value = "";
-			messageRef.current.value = "";
+			nameRef.current && (nameRef.current.value = "");
+			phoneRef.current && (phoneRef.current.value = "");
+			emailRef.current && (emailRef.current.value = "");
+			subjectRef.current && (subjectRef.current.value = "");
+			messageRef.current && (messageRef.current.value = "");
 		} catch (error) {
 			console.error("Something Wrong", error);
 		}
