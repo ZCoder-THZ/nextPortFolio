@@ -15,7 +15,7 @@ const logoIcons = [
 	{ src: "/Logos/next.svg", alt: "next js", percentage: 60 },
 	{ src: "/Logos/nodejs.svg", alt: "node js", percentage: 40 },
 	{ src: "/Logos/prisma.svg", alt: "prisma", percentage: 40 },
-	{ src: "/Logos/framer.svg", alt: "framer motion", percentage: 70 },
+	{ src: "/Logos/framer.svg", alt: "framer motion", percentage: 60 },
 	{ src: "/Logos/github.svg", alt: "github", percentage: 60 },
 	{ src: "/Logos/figma.svg", alt: "figma", percentage: 80 },
 ];
