@@ -8,7 +8,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 const projects = [
 	{
 		link: "https://thz.shwemmhost.com/",
-		src: "/Projects/repohub.png",
+		src: "/Projects/repohub.svg",
 		alt: "RepoHub",
 		title: "RepoHub",
 		description: "Degital Marketing Agency project.",
@@ -16,7 +16,7 @@ const projects = [
 	},
 	{
 		link: "https://jarvis.ori0n.team/",
-		src: "/Projects/jarvis.png",
+		src: "/Projects/jarvis.svg",
 		alt: "Jarvis OS",
 		title: "Jarvis OS UI",
 		description: "Creating Circle Animation",
@@ -24,20 +24,20 @@ const projects = [
 	},
 	{
 		link: "https://ori0n.team/Js-Calculator/",
-		src: "/Projects/calculator.png",
+		src: "/Projects/calculator.svg",
 		alt: "JS Calculator",
 		title: "Calculator",
 		description: "Creating Javascript Calculator",
 		techStack: ["html", "css", "javascript"],
 	},
-	// {
-	// 	link: "https://ori0n.team/Js-Calculator/",
-	// 	src: "/Projects/calculator.png",
-	// 	alt: "JS Calculator",
-	// 	title: "Calculator",
-	// 	description: "Creating Javascript Calculator",
-	// 	techStack: ["html", "css", "javascript"],
-	// },
+	{
+		link: "https://calendar-96zg.onrender.com/",
+		src: "/Projects/calendar.svg",
+		alt: "JS Calendar",
+		title: "Calendar",
+		description: "Creating Javascript Calendar",
+		techStack: ["html", "css", "javascript"],
+	},
 	// {
 	// 	link: "https://ori0n.team/Js-Calculator/",
 	// 	src: "/Projects/calculator.png",

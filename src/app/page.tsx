@@ -10,20 +10,20 @@ import SvgText from "@/components/ui/SvgText";
 
 export default function Home() {
 	return (
-		<main className="relative w-full h-screen flex flex-col items-center">
+		<main className="relative w-full h-screen flex flex-col items-center justify-center">
 			<SvgText />
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ delay: 1, duration: 2 }}
-				className="container w-full lg:w-6/12 mx-auto grid place-items-center absolute top-0"
+				className="container w-full lg:w-6/12 absolute grid place-items-center"
 			>
 				<Image
 					src={"/myImage.svg"}
 					alt="text1"
 					width={400}
 					height={400}
-					className="w-[250px] md:w-[320px] lg:w-[380px] h-auto object-contain mt-10 md:mt-5"
+					className="w-[250px] md:w-[320px] lg:w-[380px] h-auto object-contain mt-20 md:mt-10"
 				/>
 				<div className="flex items-center gap-3 md:gap-6 mt-4">
 					<Button>
