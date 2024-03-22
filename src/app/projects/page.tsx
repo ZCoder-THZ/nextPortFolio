@@ -8,7 +8,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 const projects = [
 	{
 		link: "https://thz.shwemmhost.com/",
-		src: "/PjImages/repohub.png",
+		src: "/PjImages/repohub.svg",
 		alt: "RepoHub",
 		title: "RepoHub",
 		description: "Degital Marketing Agency project.",
@@ -16,7 +16,7 @@ const projects = [
 	},
 	{
 		link: "https://jarvis.ori0n.team/",
-		src: "/PjImages/jarvis.png",
+		src: "/PjImages/jarvis.svg",
 		alt: "Jarvis OS",
 		title: "Jarvis OS UI",
 		description: "Creating Circle Animation",
@@ -24,7 +24,7 @@ const projects = [
 	},
 	{
 		link: "https://ori0n.team/Js-Calculator/",
-		src: "/PjImages/calculator.png",
+		src: "/PjImages/calculator.svg",
 		alt: "JS Calculator",
 		title: "Calculator",
 		description: "Creating Javascript Calculator",
@@ -32,7 +32,7 @@ const projects = [
 	},
 	{
 		link: "https://calendar-96zg.onrender.com/",
-		src: "/PjImages/calendar.png",
+		src: "/PjImages/calendar.svg",
 		alt: "JS Calendar",
 		title: "Calendar",
 		description: "Creating Javascript Calendar",
