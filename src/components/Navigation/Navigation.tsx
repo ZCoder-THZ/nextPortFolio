@@ -43,7 +43,9 @@ export default function Navigation() {
 						key={index}
 						className="text-lg lg:text-base hover:text-textColor dark:hover:text-accentColor"
 					>
-						<Link href={navLink.link}>{navLink.title}</Link>
+						<Link href={navLink.link} passHref>
+							<a>{navLink.title}</a>
+						</Link>
 					</li>
 				))}
 				<Button>
