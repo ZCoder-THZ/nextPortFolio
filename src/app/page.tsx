@@ -10,7 +10,7 @@ import SvgText from "@/components/ui/SvgText";
 
 export default function Home() {
 	return (
-		<main className="relative w-full h-screen flex flex-col items-center justify-center">
+		<main className="relative w-full h-screen flex flex-col items-center justify-start md:justify-center">
 			<SvgText />
 			<motion.div
 				initial={{ opacity: 0 }}

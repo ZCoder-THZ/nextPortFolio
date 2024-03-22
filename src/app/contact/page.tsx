@@ -57,9 +57,10 @@ export default function Contact() {
 			<ToastContainer />
 			<div className="container mt-0 lg:mt-18 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-20">
 				<div className="space-y-3 lg:space-y-8">
-					<h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-7 md:leading-9 tracking-wide text-transparent bg-clip-text bg-gradient-to-br from-textColor dark:from-accentColor dark:to-bgColor to-accentColor duration-300">
-						I&apos;m avaliable for freelance <br /> or fulltime positions.{" "}
-						<br />
+					<h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-7 md:leading-9 tracking-wide text-transparent bg-clip-text bg-gradient-to-br from-textColor dark:from-accentColor dark:to-bgColor to-accentColor duration-300">
+						I&apos;m avaliable for <br className="block md:hidden" />{" "}
+						freelance <br className="hidden md:block" /> or fulltime
+						positions. <br />
 						Contact me and let&apos;s talk.
 					</h2>
 					<ContactIcons />

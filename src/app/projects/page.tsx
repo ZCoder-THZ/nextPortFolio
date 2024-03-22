@@ -7,7 +7,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 
 const projects = [
 	{
-		link: "https://thz.shwemmhost.com/",
+		link: "https://repohub-digital-agency.onrender.com/",
 		src: "/PjImages/repohub.svg",
 		alt: "RepoHub",
 		title: "RepoHub",

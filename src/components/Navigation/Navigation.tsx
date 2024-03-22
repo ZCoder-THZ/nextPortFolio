@@ -34,7 +34,7 @@ export default function Navigation() {
 			<ul
 				className={`lg:flex items-center gap-12 text-white dark:text-bgColor ${
 					navMenuOpen
-						? "flex flex-col lg:flex-row mt-20 lg:mt-0"
+						? "flex flex-col lg:flex-row mt-28 lg:mt-0"
 						: "hidden"
 				}`}
 			>
@@ -44,7 +44,8 @@ export default function Navigation() {
 						className="text-lg lg:text-base hover:text-textColor dark:hover:text-accentColor"
 					>
 						<Link href={navLink.link} passHref>
-							<a>{navLink.title}</a>
+							{/* <a>{navLink.title}</a> */}
+							{navLink.title}
 						</Link>
 					</li>
 				))}
