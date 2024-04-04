@@ -15,11 +15,19 @@ const projects = [
 		techStack: ["html", "css", "javascript"],
 	},
 	{
+		link: "https://vapestore.vercel.app/",
+		src: "/PjImages/vapestore.svg",
+		alt: "Vape Store",
+		title: "Vape Store",
+		description: "Ecommerce Project UI Design.",
+		techStack: ["nextjs", "tailwind", "typescript"],
+	},
+	{
 		link: "https://jarvis.ori0n.team/",
 		src: "/PjImages/jarvis.svg",
 		alt: "Jarvis OS",
 		title: "Jarvis OS UI",
-		description: "Creating Circle Animation",
+		description: "Creating Circle Animation.",
 		techStack: ["html", "css", "javascript", "anime.js", "scrollreveal.js"],
 	},
 	{
@@ -27,7 +35,7 @@ const projects = [
 		src: "/PjImages/calculator.svg",
 		alt: "JS Calculator",
 		title: "Calculator",
-		description: "Creating Javascript Calculator",
+		description: "Creating Javascript Calculator.",
 		techStack: ["html", "css", "javascript"],
 	},
 	{
@@ -35,17 +43,9 @@ const projects = [
 		src: "/PjImages/calendar.svg",
 		alt: "JS Calendar",
 		title: "Calendar",
-		description: "Creating Javascript Calendar",
+		description: "Creating Javascript Calendar.",
 		techStack: ["html", "css", "javascript"],
 	},
-	// {
-	// 	link: "https://ori0n.team/Js-Calculator/",
-	// 	src: "/Projects/calculator.png",
-	// 	alt: "JS Calculator",
-	// 	title: "Calculator",
-	// 	description: "Creating Javascript Calculator",
-	// 	techStack: ["html", "css", "javascript"],
-	// },
 ];
 
 export default function Projects() {
@@ -83,13 +83,13 @@ export default function Projects() {
 								))}
 							</div>
 						</div>
-						<div className="flex flex-col items-center gap-4">
+						<div className="flex flex-col items-center gap-4 p-3">
 							<Image
 								src={project.src}
 								alt={project.alt}
-								width={400}
-								height={400}
-								className="w-full h-full object-contain"
+								width={350}
+								height={350}
+								className=""
 							/>
 							<Link
 								href={project.link}

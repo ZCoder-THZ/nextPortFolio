@@ -6,7 +6,7 @@ export default function Button({
 	children: React.ReactNode;
 }>) {
 	return (
-		<div className="inline-block px-4 py-2 bg-gradient-to-tr hover:bg-gradient-to-tl shadow-md from-accentColor to-textColor rounded-lg text-white">
+		<div className="px-4 py-2 grid place-items-center bg-gradient-to-tr hover:bg-gradient-to-tl shadow-md from-accentColor to-textColor rounded-lg text-white">
 			{children}
 		</div>
 	);

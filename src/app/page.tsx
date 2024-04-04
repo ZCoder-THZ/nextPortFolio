@@ -27,15 +27,15 @@ export default function Home() {
 				/>
 				<div className="flex items-center gap-3 md:gap-6 mt-4">
 					<Button>
-						<div className="flex items-center gap-1 text-xs md:text-base">
+						<div className="flex items-center gap-1 text-sm md:text-base">
 							<Link href={"/my_cv.pdf"}>Get Resume</Link>
-							<AiOutlineDownload className="text-lg" />
+							<AiOutlineDownload className="w-5 h-5" />
 						</div>
 					</Button>
 					<Button>
-						<div className="flex items-center gap-1 text-xs md:text-base">
+						<div className="flex items-center gap-1 text-sm md:text-base">
 							<Link href={"/projects"}>See Projects</Link>
-							<MdArrowOutward />
+							<MdArrowOutward className="w-4 h-4" />
 						</div>
 					</Button>
 				</div>
