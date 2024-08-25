@@ -74,7 +74,7 @@ export default function Home() {
               className="text-6xl font-bold mb-4 dark:text-black"
               style={{ color: '#3F4A99' }}
             >
-              Hello, I'm Than Htike Zaw
+              Hello, I &apos;m Than Htike Zaw
             </h1>
             <motion.p
               className="text-2xl"
@@ -84,12 +84,12 @@ export default function Home() {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               key={role} // Ensure the key changes to trigger re-animation
             >
-              I'm a {role}
+              I &apos; m a {role}
             </motion.p>
           </motion.div>
           <div className="mt-8 mx-auto w-full md:w-2/3">
             <p className="text-lg text-gray-300 mt-4 dark:text-black">
-              I'm passionate about creating efficient and scalable web
+              I &apos;m passionate about creating efficient and scalable web
               applications. With expertise in both front-end and back-end
               technologies, I bring a comprehensive approach to building
               seamless user experiences.

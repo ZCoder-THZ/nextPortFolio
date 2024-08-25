@@ -61,11 +61,11 @@ export default function About() {
         <div>
           <p className="hover-text font-gowun text-justify text-lg md:text-2xl tracking-tighter leading-6 md:leading-9 font-thin text-textColor dark:text-bgColor">
             <Text>
-              Hello, I'm Ihan Htike Zaw, a Fullstack Developer with a strong
-              passion for crafting dynamic and efficient web applications. Over
-              the past 5 years, I've honed my skills through 2 years of
-              dedicated learning and 3 years of hands-on experience in the
-              industry.
+              Hello, I&apos;m Ihan Htike Zaw, a Fullstack Developer with a
+              strong passion for crafting dynamic and efficient web
+              applications. Over the past 5 years, I&apos;ve honed my skills
+              through 2 years of dedicated learning and 3 years of hands-on
+              experience in the industry.
             </Text>
             <br />
             <Text>
@@ -91,7 +91,7 @@ export default function About() {
             </Text>
             <br />
             <Text>
-              I'm eager to bring my expertise to a forward-thinking company
+              I&apos;m eager to bring my expertise to a forward-thinking company
               where I can contribute to exciting projects and grow alongside a
               talented team.
             </Text>
