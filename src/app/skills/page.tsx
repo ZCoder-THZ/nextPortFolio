@@ -1,96 +1,232 @@
-"use client";
-import Image from "next/image";
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import SkillChart from "@/components/ui/SkillChart";
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { TbHtml } from 'react-icons/tb';
+import { MdCss, MdJavascript } from 'react-icons/md';
+import {
+  FaReact,
+  FaBootstrap,
+  FaNodeJs,
+  FaLaravel,
+  FaAws,
+  FaDocker,
+  FaGithub,
+  FaPhp,
+  FaDigitalOcean,
+} from 'react-icons/fa';
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiJquery,
+  SiSass,
+  SiExpress,
+  SiMysql,
+  SiPostgresql,
+  SiGitlab,
+  SiPrisma,
+  SiMongodb,
+} from 'react-icons/si';
 
-const logoIcons = [
-	{ src: "/Logos/html.svg", alt: "html", percentage: 90 },
-	{ src: "/Logos/css.svg", alt: "css", percentage: 80 },
-	{ src: "/Logos/javascript.svg", alt: "javascript", percentage: 60 },
-	{ src: "/Logos/typescript.svg", alt: "typescript", percentage: 50 },
-	{ src: "/Logos/bootstrap.svg", alt: "bootstrap", percentage: 40 },
-	{ src: "/Logos/tailwind.svg", alt: "tailwind", percentage: 80 },
-	{ src: "/Logos/react.svg", alt: "react js", percentage: 70 },
-	{ src: "/Logos/next.svg", alt: "next js", percentage: 60 },
-	{ src: "/Logos/nodejs.svg", alt: "node js", percentage: 40 },
-	{ src: "/Logos/prisma.svg", alt: "prisma", percentage: 40 },
-	{ src: "/Logos/framer.svg", alt: "framer motion", percentage: 60 },
-	{ src: "/Logos/github.svg", alt: "github", percentage: 60 },
-	{ src: "/Logos/figma.svg", alt: "figma", percentage: 80 },
+const frontEnd = [
+  {
+    icon: <TbHtml fontSize={45} />,
+    name: 'HTML',
+  },
+  {
+    icon: <MdCss fontSize={45} />,
+    name: 'CSS',
+  },
+  {
+    icon: <MdJavascript fontSize={45} />,
+    name: 'JavaScript',
+  },
+  {
+    icon: <FaReact fontSize={45} />,
+    name: 'React',
+  },
+  {
+    icon: <SiNextdotjs fontSize={45} />,
+    name: 'Next.js',
+  },
+  {
+    icon: <FaBootstrap fontSize={45} />,
+    name: 'Bootstrap',
+  },
+  {
+    icon: <SiTailwindcss fontSize={45} />,
+    name: 'Tailwind CSS',
+  },
+  {
+    icon: <SiSass fontSize={45} />,
+    name: 'SCSS',
+  },
+  {
+    icon: <SiJquery fontSize={45} />,
+    name: 'jQuery',
+  },
+];
+const Backend = [
+  {
+    icon: <FaNodeJs fontSize={45} />,
+    name: 'NodeJs',
+  },
+  {
+    icon: <FaLaravel fontSize={45} />,
+    name: 'Laravel',
+  },
+  {
+    icon: <FaPhp fontSize={45} />,
+    name: 'Php',
+  },
+  {
+    icon: <SiExpress fontSize={45} />,
+    name: 'Express',
+  },
+];
+const Database = [
+  {
+    icon: <SiMysql fontSize={45} />,
+    name: 'Mysql',
+  },
+  {
+    icon: <SiPostgresql fontSize={45} />,
+    name: 'Postgresql',
+  },
+  {
+    icon: <SiPrisma fontSize={45} />,
+    name: 'Prisma',
+  },
+  {
+    icon: <SiMongodb fontSize={45} />,
+    name: 'Mongodb',
+  },
+];
+const DevOps = [
+  {
+    icon: <FaDocker fontSize={45} />,
+    name: 'Docker',
+  },
+  {
+    icon: <FaAws fontSize={45} />,
+    name: 'AWS',
+  },
+  {
+    icon: <FaGithub fontSize={45} />,
+    name: 'GitHub',
+  },
+
+  {
+    icon: <SiGitlab fontSize={45} />,
+    name: 'GitLab',
+  },
+  {
+    icon: <FaDigitalOcean fontSize={45} />,
+    name: 'Digital Ocean',
+  },
 ];
 
 export default function Skills() {
-	const [isFlipped, setIsFlipped] = useState(false);
-	const [isAnimated, setIsAnimated] = useState(false);
-	const handleFlip = () => {
-		if (!isAnimated) {
-			setIsFlipped(!isFlipped);
-			setIsAnimated(true);
-		}
-	};
-	return (
-		<div className="w-full h-screen flex items-center justify-center">
-			<div className="container flex flex-col items-center gap-10">
-				<div className="space-y-2 md:space-y-6">
-					<motion.h1
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 1 }}
-						className="text-4xl md:text-5xl text-center font-bold uppercase dark:text-bgColor"
-					>
-						skills{" "}
-						<span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor dark:from-accentColor to-white dark:to-textColor">
-							&
-						</span>{" "}
-						technologies
-					</motion.h1>
-					<motion.p
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 1 }}
-						className="w-full md:w-8/12 mx-auto font-gowun text-center text-textColor dark:text-accentColor"
-					>
-						A Closer Look at My Skill Set and Mastery in Leading-edge
-						Technologies.
-					</motion.p>
-				</div>
-				<div className="w-full md:w-9/12 lg:w-6/12 mx-auto flex flex-wrap justify-center gap-2 md:gap-8">
-					{logoIcons.map((logo, index) => (
-						<div
-							key={index}
-							onClick={handleFlip}
-							className="flip-icon w-16 h-16 cursor-pointer"
-						>
-							<AnimatePresence>
-								<motion.div
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1 }}
-									whileHover={{ rotateY: isFlipped ? 0 : 180 }}
-									transition={{
-										duration: 0.3,
-										animationDirection: "normal",
-									}}
-									onAnimationComplete={() => setIsAnimated(false)}
-									className="flip-icon-inner w-[90%] h-[90%] md:w-full md:h-full"
-								>
-									<div className="flip-icon-front w-full h-full grid place-items-center p-4 rounded-xl bg-bgColor shadow-lg shadow-textColor">
-										<Image
-											src={logo.src}
-											alt={logo.alt}
-											width={30}
-											height={30}
-										/>
-									</div>
-									<div className="flip-icon-back text-white w-full h-full grid place-items-center p-4 rounded-xl bg-bgColor shadow-lg shadow-textColor/80">
-										<SkillChart percentage={logo.percentage} />
-									</div>
-								</motion.div>
-							</AnimatePresence>
-						</div>
-					))}
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div className="w-full h-screen flex items-center justify-center p-4">
+      <div className="container flex flex-col items-center gap-10">
+        <div className="space-y-2 md:space-y-6">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-5xl text-center font-bold uppercase text-accentColor"
+          >
+            Frontend{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor ">
+              &
+            </span>{' '}
+            Technologies
+          </motion.h1>
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-4">
+            {frontEnd.map((tech, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <button className="py-2 px-4 bg-accentColor  rounded-md shadow-md">
+                  {tech.icon}
+                </button>
+                <p className="mt-2 text-textColor">{tech.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="space-y-2 md:space-y-6">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-5xl text-center font-bold uppercase text-accentColor"
+          >
+            Backend{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor ">
+              &
+            </span>{' '}
+            Technologies
+          </motion.h1>
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-4">
+            {Backend.map((tech, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <button className="py-2 px-4 bg-accentColor  rounded-md shadow-md">
+                  {tech.icon}
+                </button>
+                <p className="mt-2 text-textColor">{tech.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-2 md:space-y-6">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-5xl text-center font-bold uppercase text-accentColor"
+          >
+            Database{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor ">
+              &
+            </span>{' '}
+            Tools
+          </motion.h1>
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-4">
+            {Database.map((tech, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <button className="py-2 px-4 bg-accentColor  rounded-md shadow-md">
+                  {tech.icon}
+                </button>
+                <p className="mt-2 text-textColor">{tech.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-2 md:space-y-6">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-5xl text-center font-bold uppercase text-accentColor"
+          >
+            Devops{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-tr from-accentColor ">
+              &
+            </span>{' '}
+          </motion.h1>
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-4">
+            {DevOps.map((tech, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <button className="py-2 px-4 bg-accentColor  rounded-md shadow-md">
+                  {tech.icon}
+                </button>
+                <p className="mt-2 text-textColor">{tech.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
