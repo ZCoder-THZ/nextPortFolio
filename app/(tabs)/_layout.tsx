@@ -39,6 +39,18 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="addExpense"
+        options={{
+          title: 'Expense',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? 'add-circle' : 'add-circle-outline'}
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

@@ -1,10 +1,21 @@
 import { View, SafeAreaView, Text, Button } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocalSearchParams, Stack, useRouter } from 'expo-router'; // Ensure Stack is imported correctly
-
+import Data from '../Data.json';
 const DetailScreen = () => {
   const { id } = useLocalSearchParams();
   const router = useRouter();
+
+  useEffect(() => {
+    // Fetch data from JSON file
+    const item = Data.find((item) => item.id === parseInt(id));
+
+    // If item not found, navigate to not-found screen
+    if (!item) {
+      router.push('not-found');
+    }
+  }, [id, router]); // Only re-run this effect if id or router changes)
+
   return (
     <>
       <SafeAreaView style={{ flex: 1 }}>
@@ -19,6 +30,9 @@ const DetailScreen = () => {
             }}
           >
             DetailScreen {id}
+          </Text>
+          <Text>
+            Title: {Data.find((item) => item.id === parseInt(id))?.title}
           </Text>
           <Button
             title="Back"

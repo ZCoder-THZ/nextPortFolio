@@ -13,7 +13,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Link } from 'expo-router';
-
+import Data from '../Data.json';
 export default function HomeScreen() {
   const lists = [
     { id: 1, title: 'List 1', amount: 100, date: '2022-01-01' },
@@ -24,13 +24,14 @@ export default function HomeScreen() {
   return (
     <SafeAreaView>
       <FlatList
-        data={lists}
+        data={Data}
         renderItem={({ item }) => (
           <ThemedView style={styles.stepContainer}>
             <ThemedText type="subtitle">{item.title}</ThemedText>
             <ThemedText type="defaultSemiBold">{item.amount}</ThemedText>
             <ThemedText type="default">{item.date}</ThemedText>
             <Link
+              style={{ textDecorationLine: 'underline', color: '#007AFF' }}
               href={{
                 pathname: `details/[id]`,
                 params: { id: item.id },
