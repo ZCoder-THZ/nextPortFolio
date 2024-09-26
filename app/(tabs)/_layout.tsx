@@ -21,7 +21,7 @@ export default function TabLayout() {
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? 'home' : 'home-outline'}
+              name={focused ? 'bar-chart' : 'home-outline'}
               color={color}
             />
           ),
@@ -33,22 +33,41 @@ export default function TabLayout() {
           title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? 'code-slash' : 'code-slash-outline'}
+              name={focused ? 'pie-chart' : 'pie-chart-outline'}
               color={color}
             />
           ),
         }}
       />
       <Tabs.Screen
-        name="addExpense"
+        name="addIncome"
         options={{
-          title: 'Expense',
+          title: 'Add Income',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? 'add-circle' : 'add-circle-outline'}
               color={color}
             />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="incomes/index"
+        options={{
+          title: 'Incomese',
+          headerShown: true,
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? 'grid-sharp' : 'grid-outline'}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="incomes/details/index"
+        options={{
+          href: null,
         }}
       />
     </Tabs>

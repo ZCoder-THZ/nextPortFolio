@@ -2,46 +2,103 @@ import {
   Image,
   Button,
   Text,
+  View,
+  Alert,
   FlatList,
   StyleSheet,
   Platform,
 } from 'react-native';
-
+import axios from 'axios';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Link } from 'expo-router';
-import Data from '../Data.json';
+import { useRouter, useNavigation, Link } from 'expo-router';
+import { useEffect, useState } from 'react';
+
 export default function HomeScreen() {
-  const lists = [
-    { id: 1, title: 'List 1', amount: 100, date: '2022-01-01' },
-    { id: 2, title: 'List 2', amount: 100, date: '2022-01-01' },
-    { id: 3, title: 'List 3', amount: 100, date: '2022-01-01' },
-    { id: 4, title: 'List 4', amount: 100, date: '2022-01-01' },
-  ];
+  const [data, setData] = useState([]);
+  const router = useRouter();
+  const navigation = useNavigation(); // To listen for navigation focus
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://172.18.0.1:4000/incomes');
+      setData(response.data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteIncome = async (id) => {
+    Alert.alert(
+      'Confirmation', // Title
+      'Are you sure you want to submit?', // Message
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'Submit',
+          onPress: async () => {
+            try {
+              await axios.delete(`http://172.18.0.1:4000/incomes/${id}`);
+              setData(data.filter((item) => item.id !== id));
+              Alert.alert('Income deleted successfully');
+            } catch (error) {
+              console.error(error);
+            }
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
+
+  useEffect(() => {
+    // Fetch data when the screen is focused (e.g., after navigation back from another screen)
+    const unsubscribe = navigation.addListener('focus', fetchData);
+
+    // Cleanup the listener on unmount
+    return unsubscribe;
+  }, [navigation]);
+
   return (
     <SafeAreaView>
       <FlatList
-        data={Data}
+        data={data || []}
         renderItem={({ item }) => (
           <ThemedView style={styles.stepContainer}>
-            <ThemedText type="subtitle">{item.title}</ThemedText>
-            <ThemedText type="defaultSemiBold">{item.amount}</ThemedText>
-            <ThemedText type="default">{item.date}</ThemedText>
-            <Link
-              style={{ textDecorationLine: 'underline', color: '#007AFF' }}
-              href={{
-                pathname: `details/[id]`,
-                params: { id: item.id },
-              }}
-            >
-              View detail
-            </Link>
+            <ThemedText type="subtitle">{item?.income}</ThemedText>
+            <ThemedText type="defaultSemiBold">{item.description}</ThemedText>
+            <ThemedText type="default">{item.created_at}</ThemedText>
+            <View style={{ flexDirection: 'row' }}>
+              <Link
+                style={{ textDecorationLine: 'underline', color: '#007AFF' }}
+                href={{
+                  pathname: `incomes/details`,
+                  params: { id: item.id },
+                }}
+              >
+                View detail
+              </Link>
+              <Text
+                style={{
+                  textDecorationLine: 'underline',
+                  color: 'red',
+                  marginLeft: 8,
+                }}
+                onPress={() => deleteIncome(item.id)}
+              >
+                Delete Income
+              </Text>
+            </View>
           </ThemedView>
         )}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id?.toString() || Math.random().toString()} // Fallback to avoid key warning
       />
     </SafeAreaView>
   );
