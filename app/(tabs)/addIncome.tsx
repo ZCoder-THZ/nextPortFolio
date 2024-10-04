@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
 import axios from 'axios';
 import { useRouter } from 'expo-router';
-import Data from '@/app/Data.json';
-const MyBareForm = () => {
-  // Form state
-  const [description, setDescription] = useState('');
-  const router = useRouter();
-  const [income, setIncome] = useState('');
 
-  // Handle form submission
+const MyBareForm = () => {
+  const [description, setDescription] = useState('');
+  const [income, setIncome] = useState('');
+  const router = useRouter();
+
   const handleSubmit = () => {
     if (!description || !income) {
       Alert.alert('Validation Error', 'All fields are required!');
     } else {
-      // Handle form data
-      console.log({ description, income });
-
-      // Add new item to the data array
-      // Data.push({ id: Data.length + 1, description });
       const createIncome = async () => {
         try {
           const response = await axios.post('http://172.18.0.1:4000/incomes', {
@@ -27,46 +28,46 @@ const MyBareForm = () => {
           });
           Alert.alert(
             'Form Submitted',
-            `Descritpion: ${description}, Amount: ${income}`
+            `Description: ${description}, Amount: ${income}`
           );
-          //172.18.0.1:4000/
-          http: console.log(response);
+          console.log(response);
         } catch (error) {
           console.error(error);
         }
       };
       createIncome();
-      // Reset the form (optional)
       setDescription('');
       setIncome('');
-      router.replace({
-        pathname: '/',
-        params: { refreshed: true },
-      }); // Navigate back to home screen
+      router.replace({ pathname: '/', params: { refreshed: true } });
     }
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={{ textAlign: 'center' }}>Add Income Title</Text>
-      <Text style={styles.label}>Income Title</Text>
-      <TextInput
-        style={styles.input}
-        value={description}
-        onChangeText={setDescription}
-        placeholder="Enter your Income Title"
-      />
+    <View style={styles.screen}>
+      <View style={styles.formContainer}>
+        <Text style={styles.title}>Add Income</Text>
 
-      <Text style={styles.label}>income</Text>
-      <TextInput
-        style={styles.input}
-        value={income}
-        onChangeText={setIncome}
-        placeholder="Income amount"
-        keyboardType="email-address"
-      />
+        <Text style={styles.label}>Income Title</Text>
+        <TextInput
+          style={styles.input}
+          value={description}
+          onChangeText={setDescription}
+          placeholder="Enter your Income Title"
+        />
 
-      <Button title="Submit" onPress={handleSubmit} />
+        <Text style={styles.label}>Income Amount</Text>
+        <TextInput
+          style={styles.input}
+          value={income}
+          onChangeText={setIncome}
+          placeholder="Enter income amount"
+          keyboardType="numeric"
+        />
+
+        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+          <Text style={styles.submitButtonText}>Submit</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -74,19 +75,46 @@ const MyBareForm = () => {
 export default MyBareForm;
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 40,
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
     padding: 20,
+  },
+  formContainer: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+    color: '#333',
   },
   label: {
     fontSize: 16,
-    marginBottom: 5,
+    fontWeight: '600',
+    marginBottom: 10,
+    color: '#555',
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    marginBottom: 15,
-    borderRadius: 5,
+    borderColor: '#ddd',
+    padding: 12,
+    marginBottom: 20,
+    borderRadius: 8,
+    fontSize: 16,
+    backgroundColor: '#f9f9f9',
+  },
+  submitButton: {
+    backgroundColor: '#007bff',
+    paddingVertical: 15,
+    borderRadius: 8,
+  },
+  submitButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });

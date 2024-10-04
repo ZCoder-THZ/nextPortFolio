@@ -1,52 +1,40 @@
-import {
-  Image,
-  Button,
-  Text,
-  View,
-  Alert,
-  FlatList,
-  StyleSheet,
-  Platform,
-} from 'react-native';
+import { Text, View, FlatList, StyleSheet, Alert } from 'react-native';
 import axios from 'axios';
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter, useNavigation, Link } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useNavigation, Link } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons'; // Import icons
+import Chart from '../components/Chart';
+import { useQuery } from '@tanstack/react-query'; // Import useQuery
+
+// Function to fetch data using axios
+const fetchAllData = async () => {
+  const response = await axios.get('http://172.18.0.1:4000/incomes');
+  return response.data.data;
+};
 
 export default function HomeScreen() {
-  const [data, setData] = useState([]);
-  const router = useRouter();
-  const navigation = useNavigation(); // To listen for navigation focus
+  const navigation = useNavigation();
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://172.18.0.1:4000/incomes');
-      setData(response.data.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // Use the useQuery hook to fetch data
+  const { data, isLoading, error, refetch } = useQuery({
+    queryKey: ['incomes'],
+    queryFn: fetchAllData,
+    refetchInterval: 10000, // Refetch every 10 seconds
+  });
 
+  // Delete income handler
   const deleteIncome = async (id) => {
     Alert.alert(
-      'Confirmation', // Title
-      'Are you sure you want to submit?', // Message
+      'Delete Confirmation',
+      'Are you sure you want to delete this income?',
       [
+        { text: 'Cancel', style: 'cancel' },
         {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {
-          text: 'Submit',
+          text: 'Delete',
           onPress: async () => {
             try {
               await axios.delete(`http://172.18.0.1:4000/incomes/${id}`);
-              setData(data.filter((item) => item.id !== id));
+              refetch(); // Refetch data after deleting an income
               Alert.alert('Income deleted successfully');
             } catch (error) {
               console.error(error);
@@ -58,72 +46,124 @@ export default function HomeScreen() {
     );
   };
 
-  useEffect(() => {
-    // Fetch data when the screen is focused (e.g., after navigation back from another screen)
-    const unsubscribe = navigation.addListener('focus', fetchData);
+  // Return loading state
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>Loading...</Text>
+      </SafeAreaView>
+    );
+  }
 
-    // Cleanup the listener on unmount
-    return unsubscribe;
-  }, [navigation]);
+  // Handle errors
+  if (error) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>Error fetching data</Text>
+      </SafeAreaView>
+    );
+  }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      {/* Header */}
+      <Text style={styles.header}>Income Tracker</Text>
+
+      {/* Chart */}
+      <Chart />
+
+      {/* Income List */}
+      <View style={{ marginTop: 20 }}></View>
       <FlatList
         data={data || []}
         renderItem={({ item }) => (
-          <ThemedView style={styles.stepContainer}>
-            <ThemedText type="subtitle">{item?.income}</ThemedText>
-            <ThemedText type="defaultSemiBold">{item.description}</ThemedText>
-            <ThemedText type="default">{item.created_at}</ThemedText>
-            <View style={{ flexDirection: 'row' }}>
-              <Link
-                style={{ textDecorationLine: 'underline', color: '#007AFF' }}
-                href={{
-                  pathname: `incomes/details`,
-                  params: { id: item.id },
-                }}
-              >
-                View detail
-              </Link>
-              <Text
-                style={{
-                  textDecorationLine: 'underline',
-                  color: 'red',
-                  marginLeft: 8,
-                }}
-                onPress={() => deleteIncome(item.id)}
-              >
-                Delete Income
-              </Text>
+          <View style={styles.card}>
+            <View style={styles.cardContent}>
+              <View>
+                <Text style={styles.incomeText}>${item?.income}</Text>
+                <Text style={styles.description}>{item.description}</Text>
+                <Text style={styles.date}>{item.created_at}</Text>
+              </View>
+              <View style={styles.actions}>
+                <Link
+                  style={styles.viewLink}
+                  href={{
+                    pathname: `incomes/details`,
+                    params: { id: item.id },
+                  }}
+                >
+                  View Details
+                </Link>
+                <Ionicons
+                  name="trash-outline"
+                  size={24}
+                  color="red"
+                  onPress={() => deleteIncome(item.id)}
+                />
+              </View>
             </View>
-          </ThemedView>
+          </View>
         )}
-        keyExtractor={(item) => item.id?.toString() || Math.random().toString()} // Fallback to avoid key warning
+        keyExtractor={(item) => item.id?.toString() || Math.random().toString()}
+        contentContainerStyle={styles.listContent}
       />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
+  container: {
+    flex: 1,
+    backgroundColor: '#f8f9fa',
     padding: 16,
-    backgroundColor: '#F5F5F5',
-    borderRadius: 8,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    color: '#343a40',
+  },
+  card: {
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    padding: 16,
+    marginBottom: 12,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    gap: 8,
-    marginBottom: 8,
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  cardContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  incomeText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#28a745',
+  },
+  description: {
+    fontSize: 16,
+    color: '#6c757d',
+    marginTop: 4,
+  },
+  date: {
+    fontSize: 14,
+    color: '#adb5bd',
+    marginTop: 4,
+  },
+  actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 16,
+  },
+  viewLink: {
+    color: '#007bff',
+    textDecorationLine: 'underline',
+  },
+  listContent: {
+    paddingBottom: 16,
   },
 });
