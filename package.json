@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "@types/fslightbox-react": "^1.7.8",
     "axios": "^1.6.7",
     "framer-motion": "^11.0.2",
     "fslightbox-react": "^1.7.6",
