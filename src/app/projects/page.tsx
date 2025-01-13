@@ -1,54 +1,126 @@
 'use client';
-import React from 'react';
+import React, { Suspense, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { CiLocationArrow1 } from 'react-icons/ci';
-
+import Button from '@/components/ui/Button';
+import FsLightbox from 'fslightbox-react';
 const projects = [
   {
-    link: 'https://repohub-digital-agency.onrender.com/',
-    src: '/PjImages/repohub.svg',
-    alt: 'RepoHub',
-    title: 'RepoHub',
+    link: 'https://nex-commerce.vercel.app/',
+    src: '/PjImages/next-commerce.png',
+    images: [
+      '/PjImages/repohub.svg',
+      '/PjImages/repohub.svg',
+      '/PjImages/repohub.svg',
+    ],
+    id: 1,
+    alt: 'NexCommerce',
+    title: 'NexCommerce',
     description: 'Digital Marketing Agency project.',
-    techStack: ['html', 'css', 'javascript'],
+    techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
   },
   {
-    link: 'https://vapestore.vercel.app/',
-    src: '/PjImages/vapestore.svg',
-    alt: 'Vape Store',
-    title: 'Vape Store',
-    description: 'Ecommerce Project UI Design.',
-    techStack: ['nextjs', 'tailwind', 'typescript'],
+    link: 'https://issue-tracker-six-mu.vercel.app',
+    src: '/PjImages/repohub.svg',
+    alt: 'IssueTracker',
+    images: [
+      '/PjImages/repohub.svg',
+      '/PjImages/next-commerce.png',
+      '/PjImages/repohub.svg',
+    ],
+    id: 2,
+    title: 'IssueTracker',
+    description: 'Digital Marketing Agency project.',
+    techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
   },
   {
-    link: 'https://jarvis.ori0n.team/',
-    src: '/PjImages/jarvis.svg',
-    alt: 'Jarvis OS',
-    title: 'Jarvis OS UI',
-    description: 'Creating Circle Animation.',
-    techStack: ['html', 'css', 'javascript', 'anime.js', 'scrollreveal.js'],
+    link: 'https://issue-tracker-six-mu.vercel.app',
+    src: '/PjImages/repohub.svg',
+    alt: 'Pizza Order',
+    images: [
+      '/PjImages/repohub.svg',
+      '/PjImages/next-commerce.png',
+      '/PjImages/repohub.svg',
+    ],
+    id: 3,
+    title: 'Pizza Order',
+    description: 'Digital Marketing Agency project.',
+    techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
   },
   {
-    link: 'https://ori0n.team/Js-Calculator/',
-    src: '/PjImages/calculator.svg',
-    alt: 'JS Calculator',
-    title: 'Calculator',
-    description: 'Creating Javascript Calculator.',
-    techStack: ['html', 'css', 'javascript'],
+    link: 'https://issue-tracker-six-mu.vercel.app',
+    src: '/PjImages/repohub.svg',
+    alt: 'Resume Builder',
+    images: [
+      '/PjImages/repohub.svg',
+      '/PjImages/next-commerce.png',
+      '/PjImages/repohub.svg',
+    ],
+    id: 2,
+    title: 'Resume Builder',
+    description: 'Digital Marketing Agency project.',
+    techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
   },
   {
-    link: 'https://calendar-96zg.onrender.com/',
-    src: '/PjImages/calendar.svg',
-    alt: 'JS Calendar',
-    title: 'Calendar',
-    description: 'Creating Javascript Calendar.',
-    techStack: ['html', 'css', 'javascript'],
+    link: 'https://issue-tracker-six-mu.vercel.app',
+    src: '/PjImages/repohub.svg',
+    alt: 'Uni Search',
+    images: [
+      '/PjImages/repohub.svg',
+      '/PjImages/next-commerce.png',
+      '/PjImages/repohub.svg',
+    ],
+    id: 2,
+    title: 'Uni Search',
+    description: 'Digital Marketing Agency project.',
+    techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
   },
 ];
 
+function FallbackImage() {
+  return (
+    <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+      <p className="text-xs text-gray-500">Image failed to load</p>
+    </div>
+  );
+}
+
+function ImageWithFallback({
+  src,
+  alt,
+  width,
+  height,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}) {
+  const [imgSrc, setImgSrc] = useState(src);
+  const [error, setError] = useState(false);
+
+  return (
+    <>
+      {!error ? (
+        <Image
+          src={imgSrc}
+          alt={alt}
+          width={width}
+          height={height}
+          className="rounded-md"
+          onError={() => setError(true)}
+        />
+      ) : (
+        <FallbackImage />
+      )}
+    </>
+  );
+}
+
 export default function Projects() {
+  const [toggler, setToggler] = useState(false);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -63,11 +135,15 @@ export default function Projects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="border border-gray-200 dardrk:boer-gray-800 p-4 rounded-lg flex flex-col justify-between"
+            className="border border-gray-200 dark:border-gray-800 p-4 rounded-lg flex flex-col justify-between"
           >
             <div>
-              <h1 className="text-xl lg:text-2xl font-bold">{project.title}</h1>
-              <p className="font-gowun text-sm">{project.description}</p>
+              <h1 className="text-xl lg:text-2xl font-bold text-textColor">
+                {project.title}
+              </h1>
+              <p className="font-gowun text-sm dark:text-textColor">
+                {project.description}
+              </p>
               <div className="flex flex-wrap mt-2">
                 {project.techStack.map((tech, index) => (
                   <p
@@ -80,20 +156,45 @@ export default function Projects() {
               </div>
             </div>
             <div className="flex flex-col items-center mt-4">
-              <Image
-                src={project.src}
-                alt={project.alt}
-                width={200}
-                height={200}
-                className="rounded-md"
-              />
-              <Link
-                href={project.link}
-                target="_blank"
-                className="flex items-center gap-1 font-gowun underline text-textColor mt-2"
+              <Suspense
+                fallback={
+                  <div className="w-48 h-48 flex items-center justify-center bg-gray-300 dark:bg-gray-800">
+                    <p className="text-sm text-gray-500">Loading image...</p>
+                  </div>
+                }
               >
-                View Demo <CiLocationArrow1 />
-              </Link>
+                <div
+                  onClick={() => setToggler(!toggler)}
+                  className="cursor-pointer"
+                >
+                  <ImageWithFallback
+                    src={project.src}
+                    alt={project.alt}
+                    width={200}
+                    height={200}
+                  />
+                </div>
+              </Suspense>
+
+              <>
+                <FsLightbox toggler={toggler} sources={project.images} />
+              </>
+
+              <div className="flex justify-between">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  className="flex items-center gap-1 font-gowun underline text-textColor mt-2"
+                >
+                  View Demo <CiLocationArrow1 />
+                </a>
+                <Link
+                  href={'/projects/' + project.id}
+                  className="flex items-center gap-1 font-gowun underline text-textColor mt-2"
+                >
+                  Details
+                </Link>
+              </div>
             </div>
           </div>
         ))}

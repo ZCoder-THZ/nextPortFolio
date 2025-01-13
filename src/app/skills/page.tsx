@@ -25,7 +25,10 @@ import {
   SiGitlab,
   SiPrisma,
   SiMongodb,
+  SiTypescript,
+  SiShell,
 } from 'react-icons/si';
+import { IoBanSharp } from 'react-icons/io5';
 
 const frontEnd = [
   {
@@ -60,6 +63,15 @@ const frontEnd = [
     icon: <SiSass fontSize={45} />,
     name: 'SCSS',
   },
+  {
+    icon: <SiTypescript fontSize={45} />,
+    name: 'TypeScript',
+  },
+  {
+    icon: <SiShell fontSize={45} />,
+    name: 'TypeScript',
+  },
+
   {
     icon: <SiJquery fontSize={45} />,
     name: 'jQuery',
