@@ -54,9 +54,9 @@ export default function Home() {
       <div className="flex justify-center mt-5">
         <motion.div animate={imageControls} variants={shakeVariants}>
           <Image
-            width={500}
-            height={500}
-            src="/home.png"
+            width={600}
+            height={600}
+            src="/myimg2.png"
             alt="home"
             className=""
           />

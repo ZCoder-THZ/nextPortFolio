@@ -23,12 +23,17 @@ const projects = [
   },
   {
     link: 'https://issue-tracker-six-mu.vercel.app',
-    src: '/PjImages/repohub.svg',
+    src: '/PjImages/issue_tracker/issue_tracker1.png',
     alt: 'IssueTracker',
     images: [
-      '/PjImages/repohub.svg',
-      '/PjImages/next-commerce.png',
-      '/PjImages/repohub.svg',
+      '/PjImages/issue_tracker/issue_tracker1.png',
+      '/PjImages/issue_tracker/issue_tracker2.png',
+      '/PjImages/issue_tracker/issue_tracker3.png',
+      '/PjImages/issue_tracker/issue_tracker4.png',
+      '/PjImages/issue_tracker/issue_tracker5.png',
+
+
+
     ],
     id: 2,
     title: 'IssueTracker',
