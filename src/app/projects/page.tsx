@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { CiLocationArrow1 } from 'react-icons/ci';
 import Button from '@/components/ui/Button';
 import FsLightbox from 'fslightbox-react';
+
 const projects = [
   {
     link: 'https://nex-commerce.vercel.app/',
@@ -31,12 +32,24 @@ const projects = [
       '/PjImages/issue_tracker/issue_tracker3.png',
       '/PjImages/issue_tracker/issue_tracker4.png',
       '/PjImages/issue_tracker/issue_tracker5.png',
-
-
-
     ],
     id: 2,
     title: 'IssueTracker',
+    description: 'Digital Marketing Agency project.',
+    techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
+  },
+  {
+    link: 'https://next-hotel-booking-gamma.vercel.app/',
+    src: '/PjImages/hotel_booking/imag2.png',
+    alt: 'Hotel Booking',
+    images: [
+      '/PjImages/hotel_booking/imag2.png',
+      '/PjImages/hotel_booking/imag2.png',
+      '/PjImages/hotel_booking/imag3.png',
+      '/PjImages/hotel_booking/imag4.png',
+    ],
+    id: 3,
+    title: 'Hotel Booking',
     description: 'Digital Marketing Agency project.',
     techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
   },
@@ -49,7 +62,7 @@ const projects = [
       '/PjImages/next-commerce.png',
       '/PjImages/repohub.svg',
     ],
-    id: 3,
+    id: 4,
     title: 'Pizza Order',
     description: 'Digital Marketing Agency project.',
     techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
@@ -63,7 +76,7 @@ const projects = [
       '/PjImages/next-commerce.png',
       '/PjImages/repohub.svg',
     ],
-    id: 2,
+    id: 5,
     title: 'Resume Builder',
     description: 'Digital Marketing Agency project.',
     techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
@@ -77,7 +90,7 @@ const projects = [
       '/PjImages/next-commerce.png',
       '/PjImages/repohub.svg',
     ],
-    id: 2,
+    id: 6,
     title: 'Uni Search',
     description: 'Digital Marketing Agency project.',
     techStack: ['html', 'css', 'javascript', 'react', 'nextjs', 'tailwindcss'],
@@ -106,36 +119,35 @@ function ImageWithFallback({
   const [imgSrc, setImgSrc] = useState(src);
   const [error, setError] = useState(false);
 
-  return (
-    <>
-      {!error ? (
-        <Image
-          src={imgSrc}
-          alt={alt}
-          width={width}
-          height={height}
-          className="rounded-md"
-          onError={() => setError(true)}
-        />
-      ) : (
-        <FallbackImage />
-      )}
-    </>
+  return !error ? (
+    <Image
+      src={imgSrc}
+      alt={alt}
+      width={width}
+      height={height}
+      className="rounded-md"
+      onError={() => setError(true)}
+    />
+  ) : (
+    <FallbackImage />
   );
 }
 
 export default function Projects() {
-  const [toggler, setToggler] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeImages, setActiveImages] = useState<string[]>([]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="container w-full h-screen flex flex-col items-center justify-center gap-4 mx-auto"
+      className="container w-full min-h-screen flex flex-col items-center justify-center gap-4 mx-auto"
     >
       <h1 className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-textColor to-white dark:from-bgColor dark:to-accentColor pt-8 pb-2">
         My Projects
       </h1>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full lg:w-10/12 mx-auto mt-8">
         {projects.map((project, index) => (
           <div
@@ -160,6 +172,7 @@ export default function Projects() {
                 ))}
               </div>
             </div>
+
             <div className="flex flex-col items-center mt-4">
               <Suspense
                 fallback={
@@ -169,7 +182,10 @@ export default function Projects() {
                 }
               >
                 <div
-                  onClick={() => setToggler(!toggler)}
+                  onClick={() => {
+                    setActiveImages(project.images);
+                    setLightboxOpen(!lightboxOpen);
+                  }}
                   className="cursor-pointer"
                 >
                   <ImageWithFallback
@@ -181,11 +197,7 @@ export default function Projects() {
                 </div>
               </Suspense>
 
-              <>
-                <FsLightbox toggler={toggler} sources={project.images} />
-              </>
-
-              <div className="flex justify-between">
+              <div className="flex justify-between w-full">
                 <a
                   href={project.link}
                   target="_blank"
@@ -194,7 +206,7 @@ export default function Projects() {
                   View Demo <CiLocationArrow1 />
                 </a>
                 <Link
-                  href={'/projects/' + project.id}
+                  href={`/projects/${project.id}`}
                   className="flex items-center gap-1 font-gowun underline text-textColor mt-2"
                 >
                   Details
@@ -204,6 +216,9 @@ export default function Projects() {
           </div>
         ))}
       </div>
+
+      {/* Only one lightbox, reused for all projects */}
+      <FsLightbox toggler={lightboxOpen} sources={activeImages} />
     </motion.div>
   );
 }

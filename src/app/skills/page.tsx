@@ -13,6 +13,7 @@ import {
   FaGithub,
   FaPhp,
   FaDigitalOcean,
+
 } from 'react-icons/fa';
 import {
   SiNextdotjs,
@@ -26,6 +27,7 @@ import {
   SiPrisma,
   SiMongodb,
   SiTypescript,
+  SiAnsible,
   SiShell,
 } from 'react-icons/si';
 import { IoBanSharp } from 'react-icons/io5';
@@ -134,6 +136,10 @@ const DevOps = [
   {
     icon: <FaDigitalOcean fontSize={45} />,
     name: 'Digital Ocean',
+  },
+  {
+    icon: <SiAnsible fontSize={45} />,
+    name: 'Ansible',
   },
 ];
 

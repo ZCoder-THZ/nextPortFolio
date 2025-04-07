@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <div className="min-h-screen mt-36">
       <div className="flex justify-center mt-5">
-        <motion.div animate={imageControls} variants={shakeVariants}>
+        <motion.div animate={imageControls} >
           <Image
             width={600}
             height={600}
