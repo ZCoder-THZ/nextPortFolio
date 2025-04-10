@@ -6,17 +6,18 @@ import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
 
 const icons = [
-	{ link: "https://github.com/mayzinei", icon: <FaGithub /> },
+	{ link: "https://github.com/mayzine", icon: <FaGithub /> },
 	{
-		link: "https://www.facebook.com/profile.php?id=100054427574696",
+		link: "https://web.facebook.com/draker.thanhtikezaw/",
 		icon: <FaFacebookF />,
 	},
-	{ link: "https://discord.gg/bWV6Agaf", icon: <FaDiscord /> },
+	// { link: "https://discord.gg/bWV6Agaf", icon: <FaDiscord /> },
 	{
-		link: "https://mail.google.com/mail/u/0/#inbox?compose=new",
+		link: "https://mail.google.com/mail/?view=cm&to=thanhtike404web@gmail.com",
 		icon: <AiOutlineMail />,
 	},
 ];
+
 export default function ContactIcons() {
 	return (
 		<div className="flex items-center gap-4 mt-4">

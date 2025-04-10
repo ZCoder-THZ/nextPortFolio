@@ -100,7 +100,7 @@ export default function Home() {
               className=" mt-4 inline-block px-4 rounded-md py-2"
               style={{ backgroundColor: '#3F4A99' }}
             >
-              Download Cv
+              Github
             </Link>
           </div>
         </main>
