@@ -6,7 +6,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
 
 const icons = [
-	{ link: "https://github.com/mayzine", icon: <FaGithub /> },
+	{ link: "https://github.com/ZCoder-THZ", icon: <FaGithub /> },
 	{
 		link: "https://web.facebook.com/draker.thanhtikezaw/",
 		icon: <FaFacebookF />,
